@@ -37,8 +37,21 @@ class ViewController: UIViewController {
     // globale Deklaration
     @IBOutlet weak var mapView: MKMapView!
     var artworks: [Artwork] = []
-    
+    let locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 1000
+    
+    
+    func checkLocationAuthorizationStatus() {
+        
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+            
+        } else {
+            
+            locationManager.requestWhenInUseAuthorization()
+        }
+        
+    }
     
     
     override func viewDidLoad() {
@@ -55,25 +68,23 @@ class ViewController: UIViewController {
         
         
         loadInitialData()
+        mapView.register(ArtworkView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.addAnnotations(artworks)
-        
-        
-        
+     
     }
+    
+    
     
     
     func centerMapOnLocation(location: CLLocation)  {
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
-        
         mapView.setRegion(coordinateRegion, animated: true)
-        
         
     }
     
     
     func loadInitialData() {
-        
         
         guard let fileName = Bundle.main.path(forResource: "PublicArt", ofType: "json") else {
             return  }
@@ -95,13 +106,12 @@ class ViewController: UIViewController {
 
 extension ViewController: MKMapViewDelegate {
     
+    /*
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         
         // Typecast zu Artwork
         guard let annotation = annotation as? Artwork else { return nil }
-        
-        
+     
         let identifier = "marker"
         var view: MKMarkerAnnotationView
         
@@ -115,12 +125,10 @@ extension ViewController: MKMapViewDelegate {
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            
         }
-        
         return view
-        
     }
+    */
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         

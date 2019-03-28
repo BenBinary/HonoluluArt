@@ -52,7 +52,7 @@ class Artwork: NSObject, MKAnnotation {
         
         // 1
         self.title = json[16] as? String ?? "No Title"
-        self.locationName = json[12] as! String
+        self.locationName = json[11] as! String
         self.discipline = json[15] as! String
         
         
@@ -69,6 +69,33 @@ class Artwork: NSObject, MKAnnotation {
         
     }
     
-
+    var markerTintColor: UIColor {
+        
+        switch discipline {
+        case "Monument":
+            return .red
+        case "Mural":
+            return .cyan
+        case "Plaque":
+            return .blue
+        case "Sculpture":
+            return .purple
+        default:
+            return .green
+        }
+        
+    }
+    
+    var imageName: String? {
+        
+        if discipline == "Sculpture" {
+            
+            return "Statue"
+            
+        }
+        
+        return "Flag"
+        
+    }
     
 }

@@ -13,6 +13,8 @@
 		40086AFB1EC7F7AF00FD79F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40086AFA1EC7F7AF00FD79F6 /* Assets.xcassets */; };
 		40086AFE1EC7F7AF00FD79F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40086AFC1EC7F7AF00FD79F6 /* LaunchScreen.storyboard */; };
 		40086B061EC7F7CD00FD79F6 /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = 40086B051EC7F7CD00FD79F6 /* PublicArt.json */; };
+		CD10E24A224CBAAE001EC783 /* ArtworkViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD10E249224CBAAE001EC783 /* ArtworkViews.swift */; };
+		CD10E24D224CC543001EC783 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD10E24C224CC543001EC783 /* MapKit.framework */; };
 		CD16CC82224B7D8700618F8B /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16CC81224B7D8700618F8B /* Artwork.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		40086AFD1EC7F7AF00FD79F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40086AFF1EC7F7AF00FD79F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40086B051EC7F7CD00FD79F6 /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
+		CD10E249224CBAAE001EC783 /* ArtworkViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViews.swift; sourceTree = "<group>"; };
+		CD10E24C224CC543001EC783 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CD16CC81224B7D8700618F8B /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD10E24D224CC543001EC783 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,7 @@
 			children = (
 				40086AF21EC7F7AF00FD79F6 /* HonoluluArt */,
 				40086AF11EC7F7AF00FD79F6 /* Products */,
+				CD10E24B224CC543001EC783 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,8 +72,17 @@
 				40086AFC1EC7F7AF00FD79F6 /* LaunchScreen.storyboard */,
 				40086AFF1EC7F7AF00FD79F6 /* Info.plist */,
 				CD16CC81224B7D8700618F8B /* Artwork.swift */,
+				CD10E249224CBAAE001EC783 /* ArtworkViews.swift */,
 			);
 			path = HonoluluArt;
+			sourceTree = "<group>";
+		};
+		CD10E24B224CC543001EC783 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD10E24C224CC543001EC783 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +120,11 @@
 						DevelopmentTeam = WH3J98CLZU;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -146,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40086AF61EC7F7AF00FD79F6 /* ViewController.swift in Sources */,
+				CD10E24A224CBAAE001EC783 /* ArtworkViews.swift in Sources */,
 				CD16CC82224B7D8700618F8B /* Artwork.swift in Sources */,
 				40086AF41EC7F7AF00FD79F6 /* AppDelegate.swift in Sources */,
 			);
